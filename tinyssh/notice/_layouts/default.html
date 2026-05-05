@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+
+      :root {
+        --bg: #1e1c1a;
+        --surface: #252320;
+        --text: #f7f5f2;
+        --accent: #e8541a;
+        --muted: #b9b2ab;
+        --border: #3a3530;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(920px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 24px 0 14px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .surface {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .btn {
+        border: 1px solid var(--accent);
+        border-radius: 10px;
+        padding: 9px 13px;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background: var(--accent);
+        color: #130f0d;
+      }
+
+      footer {
+        margin-top: 24px;
+        padding: 14px 0 24px;
+        border-top: 1px solid #2e2924;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      a { color: var(--text); }
+
+      @media (max-width: 600px) {
+        .btn { width: 100%; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>{{ site.title }}</h1>
+        <p class="subtitle">TinySSH 서비스 관련 공지와 업데이트 내역입니다.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <footer>
+      <div class="container">© {{ "now" | date: "%Y" }} TinySSH Notice</div>
+    </footer>
+  </body>
+</html>

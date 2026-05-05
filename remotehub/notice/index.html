@@ -1,0 +1,20 @@
+---
+layout: default
+title: 공지사항
+---
+<div class="button-row">
+  <a class="btn" href="../index.html">RemoteHub 메인</a>
+  <a class="btn" href="../../index.html">통합 메인</a>
+</div>
+
+<section class="surface">
+  <h2>공지 목록</h2>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <span class="subtitle">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a href="{{ post.date | date: '%Y/%m/%d' }}/{{ post.slug }}/">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

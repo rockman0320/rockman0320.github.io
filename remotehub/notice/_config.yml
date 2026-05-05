@@ -1,0 +1,5 @@
+title: "RemoteHub 공지사항"
+baseurl: "/remotehub/notice"
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+lang: ko

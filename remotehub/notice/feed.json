@@ -1,14 +1,9 @@
----
-layout: null
----
 [
-  {% for post in site.posts %}
   {
-    "id": {{ forloop.index }},
-    "date": "{{ post.date | date: '%Y-%m-%d' }}",
-    "title": {{ post.title | jsonify }},
-    "content": {{ post.content | strip_html | jsonify }},
+    "id": 1,
+    "date": "2026-04-01",
+    "title": "서비스 시작 안내",
+    "content": "RemoteHub 서비스를 시작합니다.",
     "enabled": true
-  }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
+  }
 ]

@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "title": "TinySSH 서비스 시작 안내",
+    "content": "TinySSH 서비스를 시작합니다.",
+    "enabled": true
+  }
+]

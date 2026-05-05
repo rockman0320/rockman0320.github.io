@@ -1,20 +1,109 @@
----
-layout: default
-title: 공지사항
----
-<div class="button-row">
-  <a class="btn" href="../index.html">RemoteHub 메인</a>
-  <a class="btn" href="../../index.html">통합 메인</a>
-</div>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RemoteHub 공지사항</title>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <script src="../../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="container">
+          <h1 class="brand-title">RemoteHub 공지사항</h1>
+          <p class="brand-subtitle">앱 업데이트와 서비스 운영 소식을 빠르게 확인하세요.</p>
+        </div>
+      </header>
 
-<section class="surface">
-  <h2>공지 목록</h2>
-  <ul>
-    {% for post in site.posts %}
-      <li>
-        <span class="subtitle">{{ post.date | date: "%Y-%m-%d" }}</span>
-        <a href="{{ post.date | date: '%Y/%m/%d' }}/{{ post.slug }}/">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</section>
+      <main class="container">
+        <div class="button-row" style="margin-bottom: 12px;">
+          <a class="btn subtle" href="../index.html">RemoteHub 메인</a>
+          <a class="btn subtle" href="../../index.html">통합 메인</a>
+        </div>
+
+        <section class="notice-list" aria-live="polite" aria-busy="true">
+          <h2 class="section-title">공지 목록</h2>
+          <ul id="notice-list">
+            <li>불러오는 중...</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">© <span data-year></span> RemoteHub Notice</div>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var listNode = document.getElementById('notice-list');
+        var sectionNode = document.querySelector('.notice-list');
+
+        function escapeHtml(value) {
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function renderNotices(items) {
+          if (!items.length) {
+            listNode.innerHTML = '<li>표시할 공지가 없습니다.</li>';
+            sectionNode.setAttribute('aria-busy', 'false');
+            return;
+          }
+
+          listNode.innerHTML = items
+            .map(function (item) {
+              var title = escapeHtml(item.title || '제목 없음');
+              var date = escapeHtml(item.date || '날짜 미지정');
+              var content = escapeHtml(item.content || '');
+              return (
+                '<li>' +
+                '<span class="notice-date">' +
+                date +
+                '</span>' +
+                '<strong>' +
+                title +
+                '</strong>' +
+                '<p style="margin: 6px 0 0; color: var(--muted);">' +
+                content +
+                '</p>' +
+                '</li>'
+              );
+            })
+            .join('');
+
+          sectionNode.setAttribute('aria-busy', 'false');
+        }
+
+        fetch('./feed.json', { cache: 'no-store' })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('HTTP ' + response.status);
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            var notices = Array.isArray(data) ? data : [];
+            notices = notices.filter(function (item) {
+              return item && item.enabled !== false;
+            });
+
+            notices.sort(function (a, b) {
+              return String(b.date || '').localeCompare(String(a.date || ''));
+            });
+
+            renderNotices(notices);
+          })
+          .catch(function () {
+            listNode.innerHTML = '<li>공지 데이터를 불러오지 못했습니다.</li>';
+            sectionNode.setAttribute('aria-busy', 'false');
+          });
+      })();
+    </script>
+  </body>
+</html>

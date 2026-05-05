@@ -3,3 +3,10 @@ baseurl: "/tinyssh/notice"
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
 lang: ko
+
+source: .
+destination: ./_site
+
+exclude:
+  - "../../remotehub"
+  - "../../../remotehub"

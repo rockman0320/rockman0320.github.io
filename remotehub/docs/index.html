@@ -127,13 +127,16 @@
         <button class="lang-btn" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="ko">한국어</button>
         <button class="lang-btn" data-lang="ja">日本語</button>
+        <button class="lang-btn" data-lang="de">Deutsch</button>
+        <button class="lang-btn" data-lang="zh-TW">繁體中文</button>
       </div>
       <p class="guide-desc" id="page-desc"></p>
       <div id="steps-container"></div>
     </div>
 
     <script>
-      var IMG = 'images/kr/';
+      var IMG = { ko: 'images/kr/', _default: 'images/en/' };
+      function imgBase(lang) { return IMG[lang] || IMG._default; }
 
       var T = {
         en: {
@@ -152,7 +155,7 @@
               title: '🔐 Step 2 · Sign In',
               blocks: [
                 { type: 'img', src: 'onboarding.jpg', alt: 'Sign in screen' },
-                { type: 'ol', items: ['Tap the country code button to select your country', 'Enter your phone number (e.g. +82 10-1234-5678)', 'Tap "Send OTP" → receive a 6-digit code via SMS', 'Enter the code → automatically proceed to the next screen'] }
+                { type: 'ol', items: ['Tap the country code button to select your country', 'Enter your phone number (e.g. +1 555-123-4567)', 'Tap "Send OTP" → receive a 6-digit code via SMS', 'Enter the code → automatically proceed to the next screen'] }
               ]
             },
             {
@@ -272,7 +275,7 @@
               title: '🔐 ステップ2 · ログイン',
               blocks: [
                 { type: 'img', src: 'onboarding.jpg', alt: 'ログイン画面' },
-                { type: 'ol', items: ['国コードボタンをタップして国を選択', '電話番号を入力（例：+82 10-1234-5678）', '「Send OTP」をタップ → SMSで6桁のコードを受信', 'コードを入力 → 次の画面へ自動遷移'] }
+                { type: 'ol', items: ['国コードボタンをタップして国を選択', '電話番号を入力（例：+81 90-1234-5678）', '「Send OTP」をタップ → SMSで6桁のコードを受信', 'コードを入力 → 次の画面へ自動遷移'] }
               ]
             },
             {
@@ -314,12 +317,91 @@
             ]
           },
           security: { title: '🔒 セキュリティとプライバシー', items: ['信頼できるフレンドのみ追加', '知らない人からのリモートリクエストは顔確認後に拒否'] }
+        },
+
+        de: {
+          title: 'Remote Hub Benutzerhandbuch',
+          desc: 'Eine Fernwartungs-App für Smartphones — der Controller sieht den Bildschirm des Zielgeräts und kann kommunizieren.',
+          steps: [
+            { title: '⚙️ Schritt 1 · App-Berechtigungen', blocks: [
+              { type: 'img', src: 'permission.jpg', alt: 'Berechtigungsbildschirm' },
+              { type: 'ul', items: ['<b>Kamera</b> — Gesichtserkennung Vorschau', '<b>Mikrofon</b> — Sprachkommunikation', '<b>Kontakte</b> — Freundesliste synchronisieren', '<b>Benachrichtigungen</b> — Fernzugriffsanfragen empfangen'] },
+              { type: 'p', text: 'Tippen Sie bei jeder Berechtigung auf „Erlauben".' }
+            ]},
+            { title: '🔐 Schritt 2 · Anmelden', blocks: [
+              { type: 'img', src: 'onboarding.jpg', alt: 'Anmeldebildschirm' },
+              { type: 'ol', items: ['Ländercode-Schaltfläche antippen und Land auswählen', 'Telefonnummer eingeben (z. B. +49 151-1234-5678)', '„Send OTP" tippen → 6-stelligen Code per SMS empfangen', 'Code eingeben → automatisch zum nächsten Bildschirm wechseln'] }
+            ]},
+            { title: '👥 Schritt 3 · Freunde verwalten', blocks: [
+              { type: 'img', src: 'friends_list.jpg', alt: 'Freundeslistebildschirm' },
+              { type: 'ol', items: ['Schaltfläche „+ Freund hinzufügen" antippen', 'Nach Telefonnummer oder Benutzer-ID suchen', '„Add" tippen, um die Anfrage zu senden', 'Nach Bestätigung erscheint der Freund in der Liste'] }
+            ]},
+            { title: '📞 Schritt 4 · Fernzugriffsanfrage', blocks: [
+              { type: 'img', src: 'camera_preview.jpg', alt: 'Kamera-Vorschau' },
+              { type: 'ol', items: ['Freund auswählen → Fernzugriff-Schaltfläche antippen', 'Eigenes Gesicht in der Kamera-Vorschau prüfen', 'Anfrage senden, wenn bereit'] },
+              { type: 'img', src: 'incoming_screen.jpg', alt: 'Eingehende Fernzugriffsanfrage' },
+              { type: 'ol', start: 4, items: ['Zielgerät erhält Anrufbildschirm + Push-Benachrichtigung', 'Ziel akzeptiert → Bildschirmfreigabe festlegen → Fernsitzung beginnt'] }
+            ]},
+            { title: '🖥️ Schritt 5 · Live-Fernzugriff', blocks: [
+              { type: 'img', src: 'remote_screen.jpg', alt: 'Live-Fernzugriff' },
+              { type: 'ul', items: ['<b>Controller</b>: Zum Zoomen Pinch-Geste verwenden', 'Obere Schaltflächen: Stummschalten 🔇 / Beenden ✕', '<b>Ziel</b>: Über Statusleiste oder In-App-Schaltfläche beenden'] }
+            ]},
+            { title: '💳 Schritt 6 · Ticket-System', blocks: [
+              { type: 'ul', items: ['1 Werbung ansehen = 1 Ticket erhalten', 'Fernsitzungszeit wird in Tickets gemessen', 'Kein Ticket bei Sitzungsende innerhalb von 15 Sekunden', 'Danach 1 Ticket pro Zeiteinheit', 'Sitzung endet automatisch bei 0 Tickets', 'Verbleibende Tickets und Warnhinweise oben angezeigt'] }
+            ]}
+          ],
+          troubleshooting: { title: '🔧 Fehlerbehebung', items: [
+            { q: 'Q. Mein Freund hat die Anfrage nicht erhalten', answers: ['Prüfen, ob die App des anderen aktiv ist', 'Prüfen, ob Benachrichtigungen erlaubt sind', 'Netzwerkverbindung prüfen', 'Prüfen, ob beide auf demselben regionalen Server sind'] },
+            { q: 'Q. Der Bildschirm ruckelt oder ist langsam', answers: ['Netzwerksignalstärke prüfen', 'Hintergrund-Apps schließen', 'Laufende Downloads/Uploads stoppen'] },
+            { q: 'Q. Die Sitzung wurde automatisch beendet', answers: ['Tickets aufgebraucht — neue Sitzung startet frischen Verbrauch', 'Netzwerk unterbrochen — erneut anfragen und verbinden', 'App abgestürzt — App neu starten und nochmals versuchen'] }
+          ]},
+          security: { title: '🔒 Sicherheit & Datenschutz', items: ['Nur vertrauenswürdige Personen hinzufügen', 'Unbekannte Fernzugriffsanfragen nach Gesichtsprüfung ablehnen'] }
+        },
+
+        'zh-TW': {
+          title: 'Remote Hub 使用指南',
+          desc: '智慧型手機之間的遠端支援應用程式 — 控制端可查看目標裝置的畫面並進行溝通。',
+          steps: [
+            { title: '⚙️ 第1步 · 應用程式權限設定', blocks: [
+              { type: 'img', src: 'permission.jpg', alt: '應用程式權限設定畫面' },
+              { type: 'ul', items: ['<b>相機</b> — 臉部識別預覽', '<b>麥克風</b> — 語音通訊', '<b>聯絡人</b> — 好友清單同步', '<b>通知</b> — 接收遠端請求提醒'] },
+              { type: 'p', text: '請對每項權限點選「允許」以完成授權。' }
+            ]},
+            { title: '🔐 第2步 · 登入', blocks: [
+              { type: 'img', src: 'onboarding.jpg', alt: '登入畫面' },
+              { type: 'ol', items: ['點選國碼按鈕選擇所在國家', '輸入手機號碼（例如：+886 912-345-678）', '點選「Send OTP」→ 透過簡訊接收6位數驗證碼', '輸入驗證碼 → 自動進入下一個畫面'] }
+            ]},
+            { title: '👥 第3步 · 新增與管理好友', blocks: [
+              { type: 'img', src: 'friends_list.jpg', alt: '好友清單畫面' },
+              { type: 'ol', items: ['點選「+ 新增好友」按鈕', '以手機號碼或使用者ID搜尋', '點選「Add」傳送請求', '對方接受後即顯示於好友清單'] }
+            ]},
+            { title: '📞 第4步 · 遠端控制請求', blocks: [
+              { type: 'img', src: 'camera_preview.jpg', alt: '相機預覽畫面' },
+              { type: 'ol', items: ['選擇好友 → 點選遠端請求按鈕', '在相機預覽中確認自己的臉', '準備好後點選發送請求'] },
+              { type: 'img', src: 'incoming_screen.jpg', alt: '遠端請求來電畫面' },
+              { type: 'ol', start: 4, items: ['目標裝置收到來電畫面＋推播通知', '目標接受 → 設定畫面共用範圍 → 開始遠端作業'] }
+            ]},
+            { title: '🖥️ 第5步 · 即時遠端', blocks: [
+              { type: 'img', src: 'remote_screen.jpg', alt: '即時遠端畫面' },
+              { type: 'ul', items: ['<b>控制端</b>：可依畫面比例縮放', '上方按鈕：靜音 🔇 / 結束 ✕', '<b>目標端</b>：可透過狀態列或應用程式內按鈕結束'] }
+            ]},
+            { title: '💳 第6步 · 票券系統', blocks: [
+              { type: 'ul', items: ['觀看1則廣告獲得1張票券', '遠端時間以票券為單位計算', '連線後15秒內結束不消耗票券', '之後每隔一定時間消耗1張票券', '票券用完後自動結束作業', '畫面上方顯示剩餘票券數及警告訊息'] }
+            ]}
+          ],
+          troubleshooting: { title: '🔧 問題排除', items: [
+            { q: 'Q. 好友未收到遠端請求', answers: ['確認對方應用程式是否正在執行', '確認對方是否已開啟通知權限', '確認網路連線狀態', '確認雙方是否設定相同的地區伺服器'] },
+            { q: 'Q. 畫面出現卡頓或延遲', answers: ['確認網路訊號強度', '關閉背景應用程式', '停止進行中的下載／上傳'] },
+            { q: 'Q. 作業自動結束', answers: ['票券不足 — 開始新作業即重新計算票券消耗', '網路中斷 — 重新發送請求後再連線', '應用程式異常關閉 — 重新啟動後再試'] }
+          ]},
+          security: { title: '🔒 安全性與個人資料', items: ['僅新增可信任的好友', '確認對方臉部後，拒絕不認識的遠端請求'] }
         }
       };
 
-      function buildBlocks(blocks) {
+      function buildBlocks(blocks, lang) {
+        var base = imgBase(lang);
         return blocks.map(function(b) {
-          if (b.type === 'img') return '<img src="' + IMG + b.src + '" alt="' + b.alt + '" />';
+          if (b.type === 'img') return '<img src="' + base + b.src + '" alt="' + b.alt + '" />';
           if (b.type === 'ul') return '<ul>' + b.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
           if (b.type === 'ol') return '<ol' + (b.start ? ' start="' + b.start + '"' : '') + '>' + b.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ol>';
           if (b.type === 'p') return '<p>' + b.text + '</p>';
@@ -339,7 +421,7 @@
         });
 
         var html = d.steps.map(function(s) {
-          return '<div class="step"><h2>' + s.title + '</h2>' + buildBlocks(s.blocks) + '</div>';
+          return '<div class="step"><h2>' + s.title + '</h2>' + buildBlocks(s.blocks, lang) + '</div>';
         }).join('');
 
         var ts = d.troubleshooting;

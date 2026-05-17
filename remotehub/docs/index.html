@@ -1,121 +1,376 @@
-<!doctype html>
-<html lang="ko">
+﻿<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RemoteHub 연결 매뉴얼</title>
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-    <script src="../../assets/js/main.js" defer></script>
+    <title>Remote Hub Guide</title>
     <style>
-      .mobile-doc-nav {
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f5f5f5;
+        color: #1a1a1a;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .guide {
+        max-width: 540px;
+        margin: 0 auto;
+        padding: 24px 16px 48px;
+      }
+
+      .guide-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 8px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .guide-title img {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .lang-btn {
+        padding: 5px 14px;
+        border-radius: 20px;
+        border: 1.5px solid #ccc;
+        background: #fff;
+        font-size: 0.85rem;
+        cursor: pointer;
+        color: #555;
+        font-family: inherit;
+        transition: all 0.15s;
+      }
+
+      .lang-btn.active {
+        border-color: #222;
+        background: #222;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .guide-desc {
+        color: #555;
+        margin-bottom: 24px;
+        font-size: 0.95rem;
+      }
+
+      .step {
+        background: #fff;
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      }
+
+      .step h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #111;
+      }
+
+      .step img {
+        width: 100%;
+        border-radius: 10px;
         margin-bottom: 14px;
+        display: block;
       }
 
-      .mobile-doc-nav .btn {
-        padding: 8px 12px;
+      .step ol, .step ul {
+        padding-left: 20px;
       }
 
-      .remote-doc .doc-section {
-        border: 1px solid #3b352f;
-        border-radius: 12px;
-        padding: 16px;
-        background: #2a2622;
+      .step li {
+        margin-bottom: 6px;
+        color: #333;
       }
 
-      .remote-doc .doc-section h2 {
-        font-size: 1.18rem;
+      .step p {
+        color: #444;
+        margin-top: 10px;
       }
 
-      .remote-doc {
-        font-size: 1.02rem;
+      .step .q {
+        font-weight: 600;
+        color: #222;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        display: block;
       }
 
-      @media (max-width: 600px) {
-        .remote-doc {
-          font-size: 1.08rem;
-        }
+      .step .q:first-child { margin-top: 0; }
 
-        .remote-doc .doc-section {
-          padding: 18px;
-        }
+      .divider {
+        border: none;
+        border-top: 1px solid #e8e8e8;
+        margin: 14px 0;
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <div class="container">
-          <h1 class="brand-title">RemoteHub 인앱 연결 매뉴얼</h1>
-          <p class="brand-subtitle">WebView 환경에서도 읽기 쉬운 짧은 흐름 중심 가이드</p>
-        </div>
-      </header>
-
-      <main class="container">
-        <div class="button-row" style="margin-bottom: 12px;">
-          <a class="btn subtle" href="../index.html">앱 메인</a>
-          <a class="btn subtle" href="../../index.html">통합 메인</a>
-        </div>
-
-        <nav class="mobile-doc-nav" aria-label="빠른 이동">
-          <a class="btn" href="?section=start">시작하기</a>
-          <a class="btn" href="?section=permission">권한 설정</a>
-          <a class="btn" href="?section=request">원격 요청</a>
-          <a class="btn" href="?section=troubleshoot">문제 해결</a>
-          <a class="btn" href="?section=faq">FAQ</a>
-        </nav>
-
-        <article class="doc-content remote-doc">
-          <section id="start" class="doc-section">
-            <h2>시작하기</h2>
-            <p>앱 설치 후 초기 화면에서 프로필을 생성하고 기본 연결 대상을 등록합니다. 이 문서는 실제 콘텐츠 작성 전 구조 확인을 위한 placeholder 텍스트로 채워져 있습니다.</p>
-          </section>
-
-          <section id="permission" class="doc-section">
-            <h2>권한 설정</h2>
-            <p>연결 요청 알림과 세션 동기화를 위해 알림, 네트워크, 백그라운드 실행 권한을 확인합니다. 제조사별 절전 정책에서 앱 예외 등록이 필요할 수 있습니다.</p>
-          </section>
-
-          <section id="request" class="doc-section">
-            <h2>원격 요청</h2>
-            <p>요청 목록에서 대상 기기를 선택하고 연결 승인 규칙을 적용합니다. 승인 이력은 상태 탭에서 확인할 수 있으며, 실패한 요청은 재시도 버튼으로 즉시 재전송합니다.</p>
-          </section>
-
-          <section id="troubleshoot" class="doc-section">
-            <h2>연결 문제 해결</h2>
-            <p>연결이 끊기는 경우 네트워크 전환 시점, 토큰 만료 상태, 앱 버전 차이를 우선 점검하세요. 로그 코드 기준의 상세 진단 가이드는 이후 정식 문서에 반영됩니다.</p>
-          </section>
-
-          <section id="faq" class="doc-section">
-            <h2>FAQ</h2>
-            <p>자주 묻는 질문과 운영 팁을 순차적으로 정리할 예정입니다. 앱 내 고객지원 채널을 통해 추가 질문을 접수할 수 있습니다.</p>
-          </section>
-        </article>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container">© <span data-year></span> RemoteHub Docs</div>
-      </footer>
+    <div class="guide">
+      <h1 class="guide-title"><img src="images/sparrow.svg" alt="" /><span id="page-title"></span></h1>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+      <p class="guide-desc" id="page-desc"></p>
+      <div id="steps-container"></div>
     </div>
 
     <script>
-      (function () {
-        var section = new URLSearchParams(window.location.search).get('section');
-        if (!section) {
-          return;
-        }
+      var IMG = 'images/kr/';
 
-        var target = document.getElementById(section);
-        if (!target) {
-          return;
-        }
+      var T = {
+        en: {
+          title: 'Remote Hub User Guide',
+          desc: 'A remote support app between smartphones — the controller views and communicates with the target device.',
+          steps: [
+            {
+              title: '⚙️ Step 1 · App Permissions',
+              blocks: [
+                { type: 'img', src: 'permission.jpg', alt: 'App permissions screen' },
+                { type: 'ul', items: ['<b>Camera</b> — face recognition preview', '<b>Microphone</b> — voice communication', '<b>Contacts</b> — friend list sync', '<b>Notifications</b> — remote request alerts'] },
+                { type: 'p', text: 'Tap "Allow" for each permission.' }
+              ]
+            },
+            {
+              title: '🔐 Step 2 · Sign In',
+              blocks: [
+                { type: 'img', src: 'onboarding.jpg', alt: 'Sign in screen' },
+                { type: 'ol', items: ['Tap the country code button to select your country', 'Enter your phone number (e.g. +82 10-1234-5678)', 'Tap "Send OTP" → receive a 6-digit code via SMS', 'Enter the code → automatically proceed to the next screen'] }
+              ]
+            },
+            {
+              title: '👥 Step 3 · Friends',
+              blocks: [
+                { type: 'img', src: 'friends_list.jpg', alt: 'Friends list screen' },
+                { type: 'ol', items: ['Tap the "+ Add Friend" button', 'Search by phone number or user ID', 'Tap "Add" to send the request', 'Once accepted, they appear in your friend list'] }
+              ]
+            },
+            {
+              title: '📞 Step 4 · Remote Request',
+              blocks: [
+                { type: 'img', src: 'camera_preview.jpg', alt: 'Camera preview screen' },
+                { type: 'ol', items: ['Select a friend → tap the remote request button', 'Check your face in the camera preview', 'Tap to send the request when ready'] },
+                { type: 'img', src: 'incoming_screen.jpg', alt: 'Incoming remote request screen' },
+                { type: 'ol', start: 4, items: ['Target receives an incoming call screen + push notification', 'Target accepts → sets screen share scope → remote session begins'] }
+              ]
+            },
+            {
+              title: '🖥️ Step 5 · Live Remote',
+              blocks: [
+                { type: 'img', src: 'remote_screen.jpg', alt: 'Live remote screen' },
+                { type: 'ul', items: ['<b>Controller</b>: pinch to zoom in/out', 'Top buttons: Mute 🔇 / End ✕', '<b>Target</b>: end via status bar or in-app button'] }
+              ]
+            },
+            {
+              title: '💳 Step 6 · Ticket System',
+              blocks: [
+                { type: 'ul', items: ['Watch 1 ad to earn 1 ticket', 'Remote session time is measured in tickets', 'No ticket consumed if session ends within 15 seconds of connecting', '1 ticket consumed per time unit after that', 'Session ends automatically when tickets run out', 'Remaining tickets and low-ticket warnings shown at the top'] }
+              ]
+            }
+          ],
+          troubleshooting: {
+            title: '🔧 Troubleshooting',
+            items: [
+              { q: 'Q. My friend didn\'t receive the remote request', answers: ['Check if the other person\'s app is running', 'Check if notification permission is enabled', 'Check network connection', 'Check if both devices are set to the same regional server'] },
+              { q: 'Q. The screen is laggy or slow', answers: ['Check network signal strength', 'Close background apps', 'Stop ongoing downloads/uploads'] },
+              { q: 'Q. The session ended automatically', answers: ['Out of tickets — a new session starts fresh ticket consumption', 'Network disconnected — re-request and reconnect', 'App crashed — relaunch and retry'] }
+            ]
+          },
+          security: { title: '🔒 Security & Privacy', items: ['Only add people you trust', 'Decline remote requests from unknown contacts after verifying their face'] }
+        },
 
-        target.style.outline = '2px solid #e8541a';
-        target.style.outlineOffset = '2px';
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      })();
+        ko: {
+          title: 'Remote Hub 사용 가이드',
+          desc: '스마트폰 간 원격 지원 앱 — 컨트롤러가 타겟의 화면을 보며 대화할 수 있습니다.',
+          steps: [
+            {
+              title: '⚙️ 1단계 · 앱 권한 설정',
+              blocks: [
+                { type: 'img', src: 'permission.jpg', alt: '앱 권한 설정 화면' },
+                { type: 'ul', items: ['<b>카메라</b> — 상대방 얼굴 인식 미리보기', '<b>마이크</b> — 음성 통신', '<b>연락처</b> — 친구 목록 동기화', '<b>알림</b> — 원격 요청 수신'] },
+                { type: 'p', text: '각 권한마다 "허용"을 탭하여 승인합니다.' }
+              ]
+            },
+            {
+              title: '🔐 2단계 · 로그인',
+              blocks: [
+                { type: 'img', src: 'onboarding.jpg', alt: '로그인 화면' },
+                { type: 'ol', items: ['국가 코드 버튼을 탭해 현재 국가 선택', '전화번호 입력 (예: +82 10-1234-5678)', '"Send OTP" 탭 → SMS로 6자리 인증번호 수신', '인증번호 입력 → 자동으로 다음 화면 이동'] }
+              ]
+            },
+            {
+              title: '👥 3단계 · 친구 추가 및 관리',
+              blocks: [
+                { type: 'img', src: 'friends_list.jpg', alt: '친구 목록 화면' },
+                { type: 'ol', items: ['"+ 친구 요청" 버튼 탭', '친구의 휴대폰 번호 또는 사용자 ID 검색', '"Add" 버튼으로 요청 전송', '친구에게 푸시 알림이 가고 수락하면 목록에 표시'] }
+              ]
+            },
+            {
+              title: '📞 4단계 · 원격 제어 요청',
+              blocks: [
+                { type: 'img', src: 'camera_preview.jpg', alt: '카메라 프리뷰 화면' },
+                { type: 'ol', items: ['친구 목록에서 친구 선택 → 원격 요청 버튼 탭', '카메라 프리뷰에서 내 얼굴 확인', '준비되면 요청 탭'] },
+                { type: 'img', src: 'incoming_screen.jpg', alt: '원격 요청 인커밍 화면' },
+                { type: 'ol', start: 4, items: ['타겟 기기에 인커밍 화면 + 푸시 알림으로 요청 도착', '타겟이 수락 → 화면 공유 범위 설정 → 원격 시작'] }
+              ]
+            },
+            {
+              title: '🖥️ 5단계 · 실시간 원격',
+              blocks: [
+                { type: 'img', src: 'remote_screen.jpg', alt: '실시간 원격 화면' },
+                { type: 'ul', items: ['<b>컨트롤러</b>: 화면 비율에 따라 확대/축소 가능', '상단 음소거 🔇 / 종료 ✕ 버튼', '<b>타겟</b>: 상태 알림바 또는 앱 내 종료 버튼으로 종료'] }
+              ]
+            },
+            {
+              title: '💳 6단계 · 티켓 시스템',
+              blocks: [
+                { type: 'ul', items: ['광고 1회 시청시 티켓 1장 지급', '원격 시간을 티켓 단위로 측정', '첫 연결 후 15초 내 종료 시 티켓 소진 없음', '이후 일정 시간마다 1 티켓씩 소비', '잔여 티켓 없으면 세션 자동 종료', '화면 상단에 잔여 티켓 및 경고 표시'] }
+              ]
+            }
+          ],
+          troubleshooting: {
+            title: '🔧 문제 해결',
+            items: [
+              { q: 'Q. 친구가 원격 요청을 받지 못했습니다', answers: ['상대방 앱 실행 여부 확인', '알림 권한 허용 여부 확인', '네트워크 연결 상태 확인', '동일한 지역 서버 설정 여부 확인'] },
+              { q: 'Q. 화면이 버벅이거나 느립니다', answers: ['네트워크 신호 강도 확인', '백그라운드 앱 종료', '진행 중인 다운로드/업로드 중단'] },
+              { q: 'Q. 세션이 자동으로 종료되었습니다', answers: ['티켓 부족 — 새 세션 시작 시 새 티켓 소비 시작', '네트워크 끊김 — 다시 요청 후 연결', '앱 비정상 종료 — 앱 재실행 후 재시도'] }
+            ]
+          },
+          security: { title: '🔒 보안 및 개인정보', items: ['신뢰할 수 있는 친구만 등록', '모르는 원격 요청은 얼굴 확인 후 거부'] }
+        },
+
+        ja: {
+          title: 'Remote Hub 使い方ガイド',
+          desc: 'スマートフォン間のリモートサポートアプリ — コントローラーがターゲットの画面を見ながら会話できます。',
+          steps: [
+            {
+              title: '⚙️ ステップ1 · アプリの権限設定',
+              blocks: [
+                { type: 'img', src: 'permission.jpg', alt: 'アプリ権限設定画面' },
+                { type: 'ul', items: ['<b>カメラ</b> — 顔認識プレビュー', '<b>マイク</b> — 音声通信', '<b>連絡先</b> — フレンドリスト同期', '<b>通知</b> — リモートリクエスト受信'] },
+                { type: 'p', text: '各権限で「許可」をタップして承認します。' }
+              ]
+            },
+            {
+              title: '🔐 ステップ2 · ログイン',
+              blocks: [
+                { type: 'img', src: 'onboarding.jpg', alt: 'ログイン画面' },
+                { type: 'ol', items: ['国コードボタンをタップして国を選択', '電話番号を入力（例：+82 10-1234-5678）', '「Send OTP」をタップ → SMSで6桁のコードを受信', 'コードを入力 → 次の画面へ自動遷移'] }
+              ]
+            },
+            {
+              title: '👥 ステップ3 · フレンドの追加・管理',
+              blocks: [
+                { type: 'img', src: 'friends_list.jpg', alt: 'フレンドリスト画面' },
+                { type: 'ol', items: ['「+ フレンド申請」ボタンをタップ', '電話番号またはユーザーIDで検索', '「Add」ボタンでリクエスト送信', '承認されるとリストに表示'] }
+              ]
+            },
+            {
+              title: '📞 ステップ4 · リモート操作リクエスト',
+              blocks: [
+                { type: 'img', src: 'camera_preview.jpg', alt: 'カメラプレビュー画面' },
+                { type: 'ol', items: ['フレンドを選択 → リモートリクエストボタンをタップ', 'カメラプレビューで自分の顔を確認', '準備ができたらリクエストをタップ'] },
+                { type: 'img', src: 'incoming_screen.jpg', alt: 'リモートリクエスト着信画面' },
+                { type: 'ol', start: 4, items: ['ターゲット端末に着信画面＋プッシュ通知で届く', 'ターゲットが承認 → 画面共有範囲を設定 → リモート開始'] }
+              ]
+            },
+            {
+              title: '🖥️ ステップ5 · リアルタイムリモート',
+              blocks: [
+                { type: 'img', src: 'remote_screen.jpg', alt: 'リアルタイムリモート画面' },
+                { type: 'ul', items: ['<b>コントローラー</b>：ピンチで拡大/縮小可能', '上部ボタン：ミュート 🔇 / 終了 ✕', '<b>ターゲット</b>：ステータスバーまたはアプリ内の終了ボタンで終了'] }
+              ]
+            },
+            {
+              title: '💳 ステップ6 · チケットシステム',
+              blocks: [
+                { type: 'ul', items: ['広告1回視聴でチケット1枚獲得', 'リモート時間はチケット単位で計測', '接続後15秒以内に終了した場合、チケット消費なし', '以降は一定時間ごとに1チケット消費', 'チケット不足でセッション自動終了', '残チケット数と警告を上部に表示'] }
+              ]
+            }
+          ],
+          troubleshooting: {
+            title: '🔧 トラブルシューティング',
+            items: [
+              { q: 'Q. フレンドがリモートリクエストを受け取れなかった', answers: ['相手のアプリが起動しているか確認', '通知権限が許可されているか確認', 'ネットワーク接続状態を確認', '同じ地域サーバーに設定されているか確認'] },
+              { q: 'Q. 画面がカクついたり遅いです', answers: ['ネットワーク電波強度を確認', 'バックグラウンドアプリを終了', '実行中のダウンロード/アップロードを中止'] },
+              { q: 'Q. セッションが自動終了しました', answers: ['チケット不足 — 新しいセッションで新しいチケット消費開始', 'ネットワーク切断 — 再リクエストして再接続', 'アプリ異常終了 — アプリを再起動して再試行'] }
+            ]
+          },
+          security: { title: '🔒 セキュリティとプライバシー', items: ['信頼できるフレンドのみ追加', '知らない人からのリモートリクエストは顔確認後に拒否'] }
+        }
+      };
+
+      function buildBlocks(blocks) {
+        return blocks.map(function(b) {
+          if (b.type === 'img') return '<img src="' + IMG + b.src + '" alt="' + b.alt + '" />';
+          if (b.type === 'ul') return '<ul>' + b.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
+          if (b.type === 'ol') return '<ol' + (b.start ? ' start="' + b.start + '"' : '') + '>' + b.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ol>';
+          if (b.type === 'p') return '<p>' + b.text + '</p>';
+          return '';
+        }).join('');
+      }
+
+      function render(lang) {
+        var d = T[lang];
+        document.documentElement.lang = lang;
+        document.title = d.title;
+        document.getElementById('page-title').textContent = d.title;
+        document.getElementById('page-desc').textContent = d.desc;
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        var html = d.steps.map(function(s) {
+          return '<div class="step"><h2>' + s.title + '</h2>' + buildBlocks(s.blocks) + '</div>';
+        }).join('');
+
+        var ts = d.troubleshooting;
+        html += '<div class="step"><h2>' + ts.title + '</h2>' +
+          ts.items.map(function(item, i) {
+            return (i > 0 ? '<hr class="divider" />' : '') +
+              '<span class="q">' + item.q + '</span>' +
+              '<ul>' + item.answers.map(function(a) { return '<li>' + a + '</li>'; }).join('') + '</ul>';
+          }).join('') + '</div>';
+
+        var sec = d.security;
+        html += '<div class="step"><h2>' + sec.title + '</h2><ul>' +
+          sec.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul></div>';
+
+        document.getElementById('steps-container').innerHTML = html;
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var lang = btn.dataset.lang;
+          localStorage.setItem('rh_lang', lang);
+          var url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          history.replaceState(null, '', url.toString());
+          render(lang);
+        });
+      });
+
+      var urlLang = new URLSearchParams(window.location.search).get('lang');
+      var initLang = (urlLang && T[urlLang]) ? urlLang : (localStorage.getItem('rh_lang') || 'en');
+      render(initLang);
     </script>
   </body>
 </html>

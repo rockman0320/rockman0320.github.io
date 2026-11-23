@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tangle Defense — Support</title>
+<meta name="description" content="Support for Tangle Defense, an idle castle defense by SparrowLabs: contact, cloud save, rankings, ads and privacy." />
+<link rel="icon" href="icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;600&family=Noto+Sans+SC:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+  /* Same tokens as the studio home page (../index.html). */
+  :root {
+    --bg: oklch(0.985 0.004 80);
+    --ink: oklch(0.22 0.012 60);
+    --ink-2: oklch(0.42 0.012 60);
+    --ink-3: oklch(0.62 0.010 60);
+    --line: oklch(0.88 0.008 70);
+    --line-2: oklch(0.93 0.006 70);
+    --accent: oklch(0.55 0.075 55);
+    --accent-soft: oklch(0.55 0.075 55 / 0.10);
+    --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --max: 860px;
+    --pad-x: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  a { color: inherit; }
+  .shell { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad-x); }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding-top: 24px; padding-bottom: 24px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mark { width: 22px; height: 22px; background: var(--ink); position: relative; border-radius: 2px; flex: none; }
+  .mark::after { content: ""; position: absolute; right: 3px; bottom: 3px; width: 6px; height: 6px; background: var(--accent); border-radius: 1px; }
+  .brand-name { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  .brand-name .en { font-family: var(--mono); font-weight: 500; color: var(--ink-3); margin-left: 8px; font-size: 12.5px; }
+  .lang { display: flex; gap: 4px; font-family: var(--mono); font-size: 12px; }
+  .lang button {
+    font: inherit; color: var(--ink-2); background: none; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 99px; padding: 5px 11px;
+  }
+  .lang button[aria-pressed="true"] { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+
+  .hero { display: flex; gap: 24px; align-items: center; padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--line-2); }
+  .hero img { width: 96px; height: 96px; border-radius: 22px; flex: none; box-shadow: 0 1px 3px oklch(0 0 0 / 0.12); }
+  .hero .k { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .hero h1 { margin: 4px 0 6px; font-size: clamp(30px, 5vw, 44px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
+  .hero p { margin: 0; color: var(--ink-2); }
+  .stores { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .cta {
+    font-family: var(--mono); font-size: 12px; color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink); padding: 7px 13px; border-radius: 99px; white-space: nowrap;
+  }
+  .cta:hover { background: var(--ink); color: var(--bg); }
+  .cta.off { color: var(--ink-3); border-color: var(--line); pointer-events: none; }
+  @media (max-width: 520px) {
+    .hero { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 36px; }
+    .hero img { width: 80px; height: 80px; border-radius: 18px; }
+  }
+
+  section.block { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line-2); }
+  .label { font-family: var(--mono); font-size: 12px; color: var(--ink-3); display: flex; gap: 10px; align-items: baseline; margin-bottom: 16px; }
+  .label .num { color: var(--accent); }
+  h2 { margin: 0 0 12px; font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.02em; font-weight: 600; line-height: 1.2; }
+  .muted { color: var(--ink-2); }
+  .mail {
+    display: inline-block; margin-top: 8px; font-size: clamp(16px, 2.4vw, 19px); font-weight: 500;
+    color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); overflow-wrap: anywhere;
+  }
+  ul.tips { margin: 14px 0 0; padding-left: 20px; color: var(--ink-2); }
+  ul.tips li + li { margin-top: 4px; }
+
+  details { border-top: 1px solid var(--line); }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer; list-style: none; padding: 16px 28px 16px 0; position: relative;
+    font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-family: var(--mono); color: var(--accent); font-size: 18px; }
+  details[open] summary::after { content: "−"; }
+  details .a { padding: 0 0 18px; color: var(--ink-2); }
+  details .a p { margin: 0; }
+  details .a p + p { margin-top: 0.7em; }
+
+  footer {
+    padding-top: 28px; padding-bottom: 48px; font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  [data-lang] { display: none; }
+  html[lang="en"] [data-lang="en"], html[lang="ko"] [data-lang="ko"], html[lang="ja"] [data-lang="ja"], html[lang="zh-Hans"] [data-lang="zh-Hans"], html[lang="zh-Hant"] [data-lang="zh-Hant"], html[lang="es"] [data-lang="es"], html[lang="pt"] [data-lang="pt"], html[lang="de"] [data-lang="de"], html[lang="fr"] [data-lang="fr"] { display: revert; }
+  html[lang="ja"] body { font-family: var(--sans), "Noto Sans JP", sans-serif; }
+  html[lang="zh-Hans"] body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", sans-serif; }
+  html[lang="zh-Hant"] body { font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
+  .lang select {
+    font: inherit; color: var(--ink); background: var(--bg); cursor: pointer;
+    border: 1px solid var(--line); border-radius: 99px; padding: 5px 10px;
+  }
+</style>
+</head>
+<body>
+<header class="shell topbar">
+  <a class="brand" href="../">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="brand-name">참새연구소<span class="en">SparrowLabs</span></span>
+  </a>
+  <div class="lang">
+    <select aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="zh-Hans">简体中文</option><option value="zh-Hant">繁體中文</option><option value="es">Español</option><option value="pt">Português</option><option value="de">Deutsch</option><option value="fr">Français</option></select>
+  </div>
+</header>
+
+<main>
+  <div class="shell hero">
+    <img src="icon.png" alt="Tangle Defense" />
+    <div>
+      <div class="k"><span data-lang="en">support</span><span data-lang="ko">고객 지원</span><span data-lang="ja">サポート</span><span data-lang="zh-Hans">客户支持</span><span data-lang="zh-Hant">客戶支援</span><span data-lang="es">soporte</span><span data-lang="pt">suporte</span><span data-lang="de">Support</span><span data-lang="fr">assistance</span></div>
+      <h1><span data-lang="en">Tangle Defense</span><span data-lang="ko">탱글 디펜스</span><span data-lang="ja">タングル・ディフェンス</span><span data-lang="zh-Hans">Tangle Defense</span><span data-lang="zh-Hant">Tangle Defense</span><span data-lang="es">Tangle Defense</span><span data-lang="pt">Tangle Defense</span><span data-lang="de">Tangle Defense</span><span data-lang="fr">Tangle Defense</span></h1>
+      <p data-lang="en">A cozy idle castle defense: your hero fires on their own, and you choose how to grow stronger.</p>
+      <p data-lang="ko">영웅이 알아서 싸우고, 나는 어떻게 강해질지만 고르는 귀여운 방치형 성 디펜스예요.</p>
+      <p data-lang="ja">ヒーローが自動で戦い、あなたはどう強くなるかを選ぶだけ。かわいい放置系の城ディフェンスです。</p>
+      <p data-lang="zh-Hans">英雄自动射箭，你只需决定如何变强。可爱的放置守城游戏。</p>
+      <p data-lang="zh-Hant">英雄自動射箭，你只需決定如何變強。可愛的放置守城遊戲。</p>
+      <p data-lang="es">Una defensa de castillo idle y relajante: tu héroe dispara solo y tú decides cómo hacerte más fuerte.</p>
+      <p data-lang="pt">Uma defesa de castelo idle e relaxante: seu herói atira sozinho e você decide como ficar mais forte.</p>
+      <p data-lang="de">Eine entspannte Idle-Burgverteidigung: Dein Held schießt von selbst, du entscheidest, wie du stärker wirst.</p>
+      <p data-lang="fr">Une défense de château idle et relaxante : ton héros tire tout seul, toi, tu choisis comment devenir plus fort.</p>
+      <div class="stores">
+        <!-- Google Play: replace with <a class="cta" href="https://play.google.com/store/apps/details?id=com.sparrowlabs.tangledefense">Google Play —&gt;</a> once the listing is public. -->
+        <span class="cta off"><span data-lang="en">Google Play — coming soon</span><span data-lang="ko">Google Play — 출시 예정</span><span data-lang="ja">Google Play — 近日公開</span><span data-lang="zh-Hans">Google Play — 即将推出</span><span data-lang="zh-Hant">Google Play — 即將推出</span><span data-lang="es">Google Play — próximamente</span><span data-lang="pt">Google Play — em breve</span><span data-lang="de">Google Play — demnächst</span><span data-lang="fr">Google Play — bientôt</span></span>
+        <!-- App Store: replace with https://apps.apple.com/app/id<AppStoreId> once the app is live. -->
+        <span class="cta off"><span data-lang="en">App Store — coming soon</span><span data-lang="ko">App Store — 출시 예정</span><span data-lang="ja">App Store — 近日公開</span><span data-lang="zh-Hans">App Store — 即将推出</span><span data-lang="zh-Hant">App Store — 即將推出</span><span data-lang="es">App Store — próximamente</span><span data-lang="pt">App Store — em breve</span><span data-lang="de">App Store — demnächst</span><span data-lang="fr">App Store — bientôt</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="contact">
+    <div class="shell">
+      <div class="label"><span class="num">§ 01</span><span data-lang="en">contact</span><span data-lang="ko">문의</span><span data-lang="ja">お問い合わせ</span><span data-lang="zh-Hans">联系我们</span><span data-lang="zh-Hant">聯絡我們</span><span data-lang="es">contacto</span><span data-lang="pt">contato</span><span data-lang="de">Kontakt</span><span data-lang="fr">contact</span></div>
+      <h2 data-lang="en">Questions, bugs or ideas? Email us.</h2>
+      <h2 data-lang="ko">질문, 버그, 의견은 이메일로 보내 주세요.</h2>
+      <h2 data-lang="ja">質問・不具合・ご意見はメールでどうぞ。</h2>
+      <h2 data-lang="zh-Hans">有问题、错误或建议？请发邮件给我们。</h2>
+      <h2 data-lang="zh-Hant">有問題、錯誤或建議？請寄信給我們。</h2>
+      <h2 data-lang="es">¿Preguntas, errores o ideas? Escríbenos.</h2>
+      <h2 data-lang="pt">Dúvidas, bugs ou ideias? Mande um e-mail.</h2>
+      <h2 data-lang="de">Fragen, Fehler oder Ideen? Schreib uns.</h2>
+      <h2 data-lang="fr">Une question, un bug, une idée ? Écris-nous.</h2>
+      <p data-lang="en" class="muted">SparrowLabs is a one-person studio. Every email is read and answered personally, usually within a few days.</p>
+      <p data-lang="ko" class="muted">참새연구소는 1인 스튜디오예요. 모든 메일을 직접 읽고 보통 며칠 안에 답장해 드려요.</p>
+      <p data-lang="ja" class="muted">SparrowLabs は一人で運営しているスタジオです。すべてのメールに目を通し、通常は数日以内にお返事します。</p>
+      <p data-lang="zh-Hans" class="muted">SparrowLabs 是一人工作室。每封邮件都会亲自阅读并回复，通常在几天之内。</p>
+      <p data-lang="zh-Hant" class="muted">SparrowLabs 是一人工作室。每封信都會親自閱讀並回覆，通常在幾天之內。</p>
+      <p data-lang="es" class="muted">SparrowLabs es un estudio de una sola persona. Leo y respondo cada correo personalmente, normalmente en pocos días.</p>
+      <p data-lang="pt" class="muted">A SparrowLabs é um estúdio de uma pessoa só. Cada e-mail é lido e respondido pessoalmente, normalmente em poucos dias.</p>
+      <p data-lang="de" class="muted">SparrowLabs ist ein Ein-Personen-Studio. Jede E-Mail wird persönlich gelesen und meist innerhalb weniger Tage beantwortet.</p>
+      <p data-lang="fr" class="muted">SparrowLabs est un studio d’une seule personne. Chaque e-mail est lu et reçoit une réponse personnelle, en général sous quelques jours.</p>
+      <a class="mail" href="mailto:rockman0320+tangledefense@gmail.com?subject=Tangle%20Defense">rockman0320+tangledefense@gmail.com</a>
+      <p data-lang="en" class="muted" style="margin:18px 0 0">For a bug, these help us find it faster:</p>
+      <p data-lang="ko" class="muted" style="margin:18px 0 0">버그를 알려 주실 때 아래 내용이 있으면 더 빨리 찾을 수 있어요.</p>
+      <p data-lang="ja" class="muted" style="margin:18px 0 0">不具合の場合、次の情報があると早く見つけられます。</p>
+      <p data-lang="zh-Hans" class="muted" style="margin:18px 0 0">报告错误时，附上以下信息能帮我们更快找到问题：</p>
+      <p data-lang="zh-Hant" class="muted" style="margin:18px 0 0">回報錯誤時，附上以下資訊能幫我們更快找到問題：</p>
+      <p data-lang="es" class="muted" style="margin:18px 0 0">Si es un error, esto nos ayuda a encontrarlo antes:</p>
+      <p data-lang="pt" class="muted" style="margin:18px 0 0">Se for um bug, isto ajuda a encontrá-lo mais rápido:</p>
+      <p data-lang="de" class="muted" style="margin:18px 0 0">Bei einem Fehler hilft uns Folgendes, ihn schneller zu finden:</p>
+      <p data-lang="fr" class="muted" style="margin:18px 0 0">Pour un bug, ces informations nous aident à le trouver plus vite :</p>
+      <ul class="tips">
+        <li><span data-lang="en">Your device model and OS version (e.g. iPhone 16, iOS 27)</span><span data-lang="ko">기기 모델과 OS 버전 (예: iPhone 16, iOS 27)</span><span data-lang="ja">端末の機種と OS のバージョン（例：iPhone 16、iOS 27）</span><span data-lang="zh-Hans">设备型号和系统版本（例如 iPhone 16、iOS 27）</span><span data-lang="zh-Hant">裝置型號和系統版本（例如 iPhone 16、iOS 27）</span><span data-lang="es">El modelo de tu dispositivo y la versión del sistema (p. ej., iPhone 16, iOS 27)</span><span data-lang="pt">O modelo do aparelho e a versão do sistema (ex.: iPhone 16, iOS 27)</span><span data-lang="de">Dein Gerätemodell und die Systemversion (z. B. iPhone 16, iOS 27)</span><span data-lang="fr">Le modèle de ton appareil et la version du système (ex. : iPhone 16, iOS 27)</span></li>
+        <li><span data-lang="en">The world and wave, or the screen where it happened</span><span data-lang="ko">세계와 웨이브, 또는 문제가 생긴 화면</span><span data-lang="ja">ワールドとウェーブ、または問題が起きた画面</span><span data-lang="zh-Hans">所在的世界和波次，或出现问题的画面</span><span data-lang="zh-Hant">所在的世界和波次，或出現問題的畫面</span><span data-lang="es">El mundo y la oleada, o la pantalla donde ocurrió</span><span data-lang="pt">O mundo e a onda, ou a tela onde aconteceu</span><span data-lang="de">Welt und Welle oder der Bildschirm, auf dem es passiert ist</span><span data-lang="fr">Le monde et la vague, ou l’écran où c’est arrivé</span></li>
+        <li><span data-lang="en">A screenshot or screen recording, if you can</span><span data-lang="ko">가능하면 스크린샷이나 화면 녹화</span><span data-lang="ja">可能ならスクリーンショットや画面収録</span><span data-lang="zh-Hans">如果可以，附上截图或录屏</span><span data-lang="zh-Hant">如果可以，附上截圖或螢幕錄影</span><span data-lang="es">Una captura o grabación de pantalla, si puedes</span><span data-lang="pt">Uma captura ou gravação de tela, se puder</span><span data-lang="de">Ein Screenshot oder eine Bildschirmaufnahme, wenn möglich</span><span data-lang="fr">Une capture ou un enregistrement d’écran, si possible</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="shell">
+      <div class="label"><span class="num">§ 02</span><span data-lang="en">faq</span><span data-lang="ko">자주 묻는 질문</span><span data-lang="ja">よくある質問</span><span data-lang="zh-Hans">常见问题</span><span data-lang="zh-Hant">常見問題</span><span data-lang="es">preguntas frecuentes</span><span data-lang="pt">perguntas frequentes</span><span data-lang="de">Häufige Fragen</span><span data-lang="fr">questions fréquentes</span></div>
+
+      <details id="cloud">
+        <summary><span data-lang="en">Will I lose my progress if I change phones?</span><span data-lang="ko">휴대폰을 바꾸면 진행 상황이 사라지나요?</span><span data-lang="ja">機種変更すると進行状況は消えますか？</span><span data-lang="zh-Hans">换手机后进度会丢失吗？</span><span data-lang="zh-Hant">換手機後進度會不見嗎？</span><span data-lang="es">¿Pierdo mi progreso si cambio de teléfono?</span><span data-lang="pt">Perco meu progresso se trocar de celular?</span><span data-lang="de">Verliere ich meinen Fortschritt, wenn ich das Handy wechsle?</span><span data-lang="fr">Est-ce que je perds ma progression si je change de téléphone ?</span></summary>
+        <div class="a">
+          <p data-lang="en">Not if cloud save is on. On iPhone and iPad, progress is saved to iCloud automatically while you are signed in to iCloud. On Android, it is saved with Google Play Games. Sign in to the same account on the new device and open the game.</p>
+          <p data-lang="ko">클라우드 저장이 켜져 있으면 사라지지 않아요. iPhone과 iPad는 iCloud에 로그인돼 있으면 자동으로 iCloud에 저장돼요. Android는 Google Play 게임즈로 저장돼요. 새 기기에서 같은 계정으로 로그인하고 게임을 열면 돼요.</p>
+          <p data-lang="ja">クラウド保存がオンなら消えません。iPhone と iPad では iCloud にサインインしていれば自動で iCloud に保存されます。Android では Google Play ゲームで保存されます。新しい端末で同じアカウントにサインインしてゲームを開いてください。</p>
+          <p data-lang="zh-Hans">只要开启云存档就不会丢失。在 iPhone 和 iPad 上，登录 iCloud 后进度会自动保存到 iCloud；在 Android 上则通过 Google Play 游戏保存。在新设备上登录同一账号并打开游戏即可。</p>
+          <p data-lang="zh-Hant">只要開啟雲端存檔就不會不見。在 iPhone 和 iPad 上，登入 iCloud 後進度會自動儲存到 iCloud；在 Android 上則透過 Google Play 遊戲儲存。在新裝置上登入同一個帳號並開啟遊戲即可。</p>
+          <p data-lang="es">No, si el guardado en la nube está activado. En iPhone y iPad, el progreso se guarda automáticamente en iCloud mientras tengas la sesión iniciada en iCloud. En Android, se guarda con Google Play Juegos. Inicia sesión con la misma cuenta en el nuevo dispositivo y abre el juego.</p>
+          <p data-lang="pt">Não, se o salvamento na nuvem estiver ativado. No iPhone e no iPad, o progresso é salvo automaticamente no iCloud enquanto você estiver conectado ao iCloud. No Android, ele é salvo com o Google Play Games. Entre na mesma conta no novo aparelho e abra o jogo.</p>
+          <p data-lang="de">Nicht, wenn der Cloud-Speicher an ist. Auf iPhone und iPad wird der Fortschritt automatisch in iCloud gespeichert, solange du bei iCloud angemeldet bist. Auf Android wird er mit Google Play Spiele gespeichert. Melde dich auf dem neuen Gerät mit demselben Konto an und öffne das Spiel.</p>
+          <p data-lang="fr">Non, si la sauvegarde cloud est activée. Sur iPhone et iPad, ta progression est enregistrée automatiquement dans iCloud tant que tu es connecté à iCloud. Sur Android, elle est enregistrée avec Google Play Jeux. Connecte-toi au même compte sur le nouvel appareil et ouvre le jeu.</p>
+          <p data-lang="en">You can check this in <b>Options → Cloud save</b>. Progress is not shared between iOS and Android.</p>
+          <p data-lang="ko">게임의 <b>옵션 → 클라우드 저장</b>에서 상태를 확인할 수 있어요. iOS와 Android 사이에는 진행 상황이 공유되지 않아요.</p>
+          <p data-lang="ja">ゲームの<b>設定 → クラウド保存</b>で状態を確認できます。iOS と Android の間で進行状況は共有されません。</p>
+          <p data-lang="zh-Hans">可以在游戏的<b>设置 → 云存档</b>中查看状态。iOS 和 Android 之间不共享进度。</p>
+          <p data-lang="zh-Hant">可以在遊戲的<b>設定 → 雲端存檔</b>中查看狀態。iOS 和 Android 之間不共享進度。</p>
+          <p data-lang="es">Puedes comprobarlo en <b>Opciones → Guardado en la nube</b>. El progreso no se comparte entre iOS y Android.</p>
+          <p data-lang="pt">Você pode conferir em <b>Opções → Salvar na nuvem</b>. O progresso não é compartilhado entre iOS e Android.</p>
+          <p data-lang="de">Du kannst das unter <b>Optionen → Cloud-Speicher</b> prüfen. Der Fortschritt wird nicht zwischen iOS und Android geteilt.</p>
+          <p data-lang="fr">Tu peux vérifier dans <b>Options → Sauvegarde cloud</b>. La progression n’est pas partagée entre iOS et Android.</p>
+        </div>
+      </details>
+
+      <details id="rankings">
+        <summary><span data-lang="en">How do I delete my ranking data?</span><span data-lang="ko">랭킹 데이터는 어떻게 지우나요?</span><span data-lang="ja">ランキングのデータはどうやって削除しますか？</span><span data-lang="zh-Hans">如何删除我的排行榜数据？</span><span data-lang="zh-Hant">如何刪除我的排行榜資料？</span><span data-lang="es">¿Cómo borro mis datos de clasificación?</span><span data-lang="pt">Como apago meus dados de classificação?</span><span data-lang="de">Wie lösche ich meine Ranglistendaten?</span><span data-lang="fr">Comment supprimer mes données de classement ?</span></summary>
+        <div class="a">
+          <p data-lang="en">Tap the trophy at the top left of the home screen, tap <b>Edit</b> on your card and choose <b>Delete my ranking data</b>. Your nickname, country and records are removed from our server right away. Tangles already added to your country’s weekly total stay in that total. You can also email us your ranking nickname and we will delete it within 30 days.</p>
+          <p data-lang="ko">홈 화면 왼쪽 위의 트로피를 누르고, 내 카드의 <b>편집</b>을 누른 뒤 <b>내 랭킹 데이터 삭제</b>를 고르세요. 닉네임, 나라, 기록이 서버에서 바로 지워져요. 이미 나라의 주간 점수에 더해진 엉킴이 수는 그 점수에 남아요. 랭킹 닉네임을 적어 이메일로 요청하셔도 30일 안에 지워 드려요.</p>
+          <p data-lang="ja">ホーム画面左上のトロフィーをタップし、自分のカードの<b>編集</b>から<b>ランキングデータを削除</b>を選んでください。ニックネーム、国、記録がサーバーからすぐに削除されます。すでに国の週間スコアに加算されたもつれの数は、そのスコアに残ります。ランキングのニックネームを書いてメールでご依頼いただいても、30日以内に削除します。</p>
+          <p data-lang="zh-Hans">点按主屏幕左上角的奖杯，在你的卡片上点按<b>编辑</b>，然后选择<b>删除我的排行榜数据</b>。你的昵称、国家和记录会立即从服务器删除。已经计入国家每周总数的缠结怪数量会保留在总数中。你也可以写上排行榜昵称发邮件给我们，我们会在 30 天内删除。</p>
+          <p data-lang="zh-Hant">點按主畫面左上角的獎盃，在你的卡片上點按<b>編輯</b>，然後選擇<b>刪除我的排行榜資料</b>。你的暱稱、國家和紀錄會立即從伺服器刪除。已經計入國家每週總數的纏結怪數量會保留在總數中。你也可以寫上排行榜暱稱寄信給我們，我們會在 30 天內刪除。</p>
+          <p data-lang="es">Toca el trofeo arriba a la izquierda de la pantalla de inicio, toca <b>Editar</b> en tu tarjeta y elige <b>Borrar mis datos de clasificación</b>. Tu apodo, país y récords se borran de nuestro servidor al instante. Los enredos ya sumados al total semanal de tu país se quedan en ese total. También puedes enviarnos tu apodo por correo y lo borraremos en un plazo de 30 días.</p>
+          <p data-lang="pt">Toque no troféu no canto superior esquerdo da tela inicial, toque em <b>Editar</b> no seu cartão e escolha <b>Apagar meus dados de classificação</b>. Seu apelido, país e recordes são apagados do nosso servidor na hora. Os emaranhados já somados ao total semanal do seu país continuam nesse total. Você também pode mandar seu apelido por e-mail e apagaremos em até 30 dias.</p>
+          <p data-lang="de">Tippe oben links auf dem Startbildschirm auf den Pokal, dann auf deiner Karte auf <b>Bearbeiten</b> und wähle <b>Meine Ranglistendaten löschen</b>. Dein Spitzname, dein Land und deine Rekorde werden sofort von unserem Server gelöscht. Wirrlinge, die schon zur Wochensumme deines Landes zählen, bleiben in dieser Summe. Du kannst uns auch deinen Spitznamen mailen, dann löschen wir ihn innerhalb von 30 Tagen.</p>
+          <p data-lang="fr">Touche le trophée en haut à gauche de l’écran d’accueil, touche <b>Modifier</b> sur ta carte et choisis <b>Supprimer mes données de classement</b>. Ton pseudo, ton pays et tes records sont supprimés de notre serveur immédiatement. Les emmêlés déjà ajoutés au total hebdomadaire de ton pays restent dans ce total. Tu peux aussi nous envoyer ton pseudo par e-mail, et nous le supprimerons sous 30 jours.</p>
+        </div>
+      </details>
+
+      <details id="account">
+        <summary><span data-lang="en">Why does the game sign in to Game Center or Play Games?</span><span data-lang="ko">왜 Game Center나 Play 게임즈에 로그인하나요?</span><span data-lang="ja">なぜ Game Center や Play ゲームにサインインするのですか？</span><span data-lang="zh-Hans">游戏为什么要登录 Game Center 或 Play 游戏？</span><span data-lang="zh-Hant">遊戲為什麼要登入 Game Center 或 Play 遊戲？</span><span data-lang="es">¿Por qué el juego inicia sesión en Game Center o Play Juegos?</span><span data-lang="pt">Por que o jogo entra no Game Center ou no Play Games?</span><span data-lang="de">Warum meldet sich das Spiel bei Game Center oder Play Spiele an?</span><span data-lang="fr">Pourquoi le jeu se connecte-t-il à Game Center ou Play Jeux ?</span></summary>
+        <div class="a">
+          <p data-lang="en">So your ranking profile follows you when you reinstall the game or change devices. On iPhone and iPad it uses Game Center, on Android Google Play Games. If you are not signed in, rankings still work with an anonymous account on that device.</p>
+          <p data-lang="ko">게임을 다시 설치하거나 기기를 바꿔도 랭킹 프로필이 이어지도록 하기 위해서예요. iPhone과 iPad는 Game Center, Android는 Google Play 게임즈를 써요. 로그인하지 않아도 그 기기의 익명 계정으로 랭킹에 참여할 수 있어요.</p>
+          <p data-lang="ja">再インストールや機種変更をしてもランキングのプロフィールを引き継ぐためです。iPhone と iPad では Game Center、Android では Google Play ゲームを使います。サインインしていなくても、その端末の匿名アカウントでランキングに参加できます。</p>
+          <p data-lang="zh-Hans">这样在重新安装游戏或更换设备后，排行榜资料也能延续。iPhone 和 iPad 使用 Game Center，Android 使用 Google Play 游戏。即使不登录，也能用该设备上的匿名账号参加排行榜。</p>
+          <p data-lang="zh-Hant">這樣在重新安裝遊戲或更換裝置後，排行榜資料也能延續。iPhone 和 iPad 使用 Game Center，Android 使用 Google Play 遊戲。即使不登入，也能用該裝置上的匿名帳號參加排行榜。</p>
+          <p data-lang="es">Para que tu perfil de clasificación te siga si reinstalas el juego o cambias de dispositivo. En iPhone y iPad usa Game Center; en Android, Google Play Juegos. Si no inicias sesión, puedes participar igualmente con una cuenta anónima en ese dispositivo.</p>
+          <p data-lang="pt">Para que seu perfil de classificação acompanhe você ao reinstalar o jogo ou trocar de aparelho. No iPhone e no iPad ele usa o Game Center; no Android, o Google Play Games. Se você não entrar, ainda pode participar com uma conta anônima naquele aparelho.</p>
+          <p data-lang="de">Damit dein Ranglistenprofil erhalten bleibt, wenn du das Spiel neu installierst oder das Gerät wechselst. Auf iPhone und iPad wird Game Center verwendet, auf Android Google Play Spiele. Ohne Anmeldung kannst du trotzdem mit einem anonymen Konto auf diesem Gerät mitmachen.</p>
+          <p data-lang="fr">Pour que ton profil de classement te suive si tu réinstalles le jeu ou changes d’appareil. Sur iPhone et iPad, le jeu utilise Game Center ; sur Android, Google Play Jeux. Sans connexion, tu peux quand même participer avec un compte anonyme sur cet appareil.</p>
+        </div>
+      </details>
+
+      <details id="ads">
+        <summary><span data-lang="en">How do I change my ad privacy choices?</span><span data-lang="ko">광고 개인정보 선택은 어떻게 바꾸나요?</span><span data-lang="ja">広告のプライバシー設定はどう変更しますか？</span><span data-lang="zh-Hans">如何更改广告隐私选项？</span><span data-lang="zh-Hant">如何變更廣告隱私選項？</span><span data-lang="es">¿Cómo cambio mis opciones de privacidad de anuncios?</span><span data-lang="pt">Como mudo minhas escolhas de privacidade de anúncios?</span><span data-lang="de">Wie ändere ich meine Datenschutzeinstellungen für Werbung?</span><span data-lang="fr">Comment modifier mes choix de confidentialité pour les publicités ?</span></summary>
+        <div class="a">
+          <p data-lang="en">Where consent is required (for example the EEA and the UK), open <b>Options → Privacy settings</b> in the game. On iPhone and iPad you can turn tracking on or off in <b>Settings → Privacy &amp; Security → Tracking</b>. On any device you can also limit ad tracking or reset your advertising ID in the device settings.</p>
+          <p data-lang="ko">동의가 필요한 지역(예: 유럽 경제 지역, 영국)에서는 게임의 <b>옵션 → 개인정보 설정</b>에서 바꿀 수 있어요. iPhone과 iPad는 <b>설정 → 개인정보 보호 및 보안 → 추적</b>에서 추적 허용을 켜고 끌 수 있어요. 기기 설정에서 광고 추적을 제한하거나 광고 ID를 재설정할 수도 있어요.</p>
+          <p data-lang="ja">同意が必要な地域（EEA、英国など）では、ゲームの<b>設定 → プライバシー設定</b>から変更できます。iPhone と iPad では<b>設定 → プライバシーとセキュリティ → トラッキング</b>でオン・オフを切り替えられます。どの端末でも、端末の設定で広告トラッキングを制限したり広告 ID をリセットしたりできます。</p>
+          <p data-lang="zh-Hans">在需要征得同意的地区（例如欧洲经济区、英国），可在游戏的<b>设置 → 隐私设置</b>中更改。在 iPhone 和 iPad 上，可在<b>设置 → 隐私与安全性 → 跟踪</b>中开启或关闭跟踪。在任何设备上，也可以在设备设置中限制广告跟踪或重置广告 ID。</p>
+          <p data-lang="zh-Hant">在需要取得同意的地區（例如歐洲經濟區、英國），可在遊戲的<b>設定 → 隱私設定</b>中變更。在 iPhone 和 iPad 上，可在<b>設定 → 隱私權與安全性 → 追蹤</b>中開啟或關閉追蹤。在任何裝置上，也可以在裝置設定中限制廣告追蹤或重設廣告 ID。</p>
+          <p data-lang="es">Donde se requiere consentimiento (por ejemplo, el EEE y el Reino Unido), abre <b>Opciones → Privacidad</b> en el juego. En iPhone y iPad puedes activar o desactivar el rastreo en <b>Ajustes → Privacidad y seguridad → Rastreo</b>. En cualquier dispositivo también puedes limitar el seguimiento de anuncios o restablecer tu ID de publicidad en los ajustes.</p>
+          <p data-lang="pt">Onde o consentimento é exigido (por exemplo, no EEE e no Reino Unido), abra <b>Opções → Privacidade</b> no jogo. No iPhone e no iPad, você pode ativar ou desativar o rastreamento em <b>Ajustes → Privacidade e Segurança → Rastreamento</b>. Em qualquer aparelho, também é possível limitar o rastreamento de anúncios ou redefinir o ID de publicidade nas configurações.</p>
+          <p data-lang="de">Wo eine Einwilligung nötig ist (zum Beispiel im EWR und im Vereinigten Königreich), öffne im Spiel <b>Optionen → Datenschutz</b>. Auf iPhone und iPad kannst du Tracking unter <b>Einstellungen → Datenschutz &amp; Sicherheit → Tracking</b> ein- oder ausschalten. Auf jedem Gerät kannst du außerdem in den Geräteeinstellungen das Werbe-Tracking einschränken oder deine Werbe-ID zurücksetzen.</p>
+          <p data-lang="fr">Là où le consentement est requis (par exemple dans l’EEE et au Royaume-Uni), ouvre <b>Options → Confidentialité</b> dans le jeu. Sur iPhone et iPad, tu peux activer ou désactiver le suivi dans <b>Réglages → Confidentialité et sécurité → Suivi</b>. Sur tout appareil, tu peux aussi limiter le suivi publicitaire ou réinitialiser ton identifiant publicitaire dans les réglages.</p>
+        </div>
+      </details>
+
+      <details id="purchases">
+        <summary><span data-lang="en">Are there in-app purchases?</span><span data-lang="ko">유료 결제가 있나요?</span><span data-lang="ja">アプリ内課金はありますか？</span><span data-lang="zh-Hans">有应用内购买吗？</span><span data-lang="zh-Hant">有 App 內購買嗎？</span><span data-lang="es">¿Hay compras dentro de la app?</span><span data-lang="pt">Há compras no app?</span><span data-lang="de">Gibt es In-App-Käufe?</span><span data-lang="fr">Y a-t-il des achats intégrés ?</span></summary>
+        <div class="a">
+          <p data-lang="en">No. The game is free and has no in-app purchases. Ads appear only when you choose to watch one for a reward, such as double coins or a continue.</p>
+          <p data-lang="ko">없어요. 게임은 무료이고 인앱 결제가 없어요. 광고는 코인 2배나 이어하기처럼 보상을 받으려고 직접 고를 때만 나와요.</p>
+          <p data-lang="ja">ありません。ゲームは無料で、アプリ内課金はありません。広告は、コイン2倍やコンティニューなどの報酬を受け取るために自分で選んだときだけ表示されます。</p>
+          <p data-lang="zh-Hans">没有。游戏免费，没有应用内购买。只有当你为了获得奖励（例如双倍金币或继续游戏）而主动选择观看时，才会出现广告。</p>
+          <p data-lang="zh-Hant">沒有。遊戲免費，沒有 App 內購買。只有當你為了獲得獎勵（例如雙倍金幣或繼續遊戲）而主動選擇觀看時，才會出現廣告。</p>
+          <p data-lang="es">No. El juego es gratis y no tiene compras dentro de la app. Los anuncios solo aparecen cuando eliges ver uno a cambio de una recompensa, como monedas dobles o continuar.</p>
+          <p data-lang="pt">Não. O jogo é gratuito e não tem compras no app. Os anúncios só aparecem quando você escolhe assistir a um em troca de uma recompensa, como moedas em dobro ou continuar.</p>
+          <p data-lang="de">Nein. Das Spiel ist kostenlos und hat keine In-App-Käufe. Werbung erscheint nur, wenn du dich selbst dafür entscheidest, um eine Belohnung zu bekommen, etwa doppelte Münzen oder Weiterspielen.</p>
+          <p data-lang="fr">Non. Le jeu est gratuit et sans achats intégrés. Les publicités n’apparaissent que si tu choisis d’en regarder une pour une récompense, comme des pièces doublées ou pour continuer.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="block" id="privacy">
+    <div class="shell">
+      <div class="label"><span class="num">§ 03</span><span data-lang="en">privacy</span><span data-lang="ko">개인정보</span><span data-lang="ja">プライバシー</span><span data-lang="zh-Hans">隐私</span><span data-lang="zh-Hant">隱私</span><span data-lang="es">privacidad</span><span data-lang="pt">privacidade</span><span data-lang="de">Datenschutz</span><span data-lang="fr">confidentialité</span></div>
+      <p data-lang="en" class="muted" style="margin:0 0 14px">What the game collects, why, and the choices you have.</p>
+      <p data-lang="ko" class="muted" style="margin:0 0 14px">게임이 무엇을 왜 수집하는지, 어떤 선택을 할 수 있는지 적어 두었어요.</p>
+      <p data-lang="ja" class="muted" style="margin:0 0 14px">ゲームが何をなぜ収集するのか、どんな選択ができるのかをまとめています。</p>
+      <p data-lang="zh-Hans" class="muted" style="margin:0 0 14px">游戏收集哪些信息、为什么收集，以及你可以做出的选择。</p>
+      <p data-lang="zh-Hant" class="muted" style="margin:0 0 14px">遊戲收集哪些資訊、為什麼收集，以及你可以做出的選擇。</p>
+      <p data-lang="es" class="muted" style="margin:0 0 14px">Qué recoge el juego, por qué y qué opciones tienes.</p>
+      <p data-lang="pt" class="muted" style="margin:0 0 14px">O que o jogo coleta, por quê e quais escolhas você tem.</p>
+      <p data-lang="de" class="muted" style="margin:0 0 14px">Was das Spiel erfasst, warum und welche Wahl du hast.</p>
+      <p data-lang="fr" class="muted" style="margin:0 0 14px">Ce que le jeu collecte, pourquoi, et les choix dont tu disposes.</p>
+      <a class="cta" href="https://rockman0320.github.io/tangledefense-policy/"><span data-lang="en">Privacy policy</span><span data-lang="ko">개인정보처리방침</span><span data-lang="ja">プライバシーポリシー</span><span data-lang="zh-Hans">隐私政策</span><span data-lang="zh-Hant">隱私權政策</span><span data-lang="es">Política de privacidad</span><span data-lang="pt">Política de privacidade</span><span data-lang="de">Datenschutzerklärung</span><span data-lang="fr">Politique de confidentialité</span> —&gt;</a>
+    </div>
+  </section>
+</main>
+
+<footer class="shell">
+  <a href="../">참새연구소 · SparrowLabs — Seoul, KR</a>
+  <span>© 2026 참새연구소</span>
+</footer>
+
+<script>
+  // Language: ?lang=, then the browser's language; English for everything else.
+  (function () {
+    var LANGS = ['en', 'ko', 'ja', 'zh-Hans', 'zh-Hant', 'es', 'pt', 'de', 'fr'];
+    function pick(code) {
+      code = (code || '').toLowerCase();
+      if (code.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(code) ? 'zh-Hant' : 'zh-Hans';
+      for (var i = 0; i < LANGS.length; i++) if (code === LANGS[i].toLowerCase() || code.indexOf(LANGS[i] + '-') === 0) return LANGS[i];
+      return null;
+    }
+    var lang = pick(new URLSearchParams(location.search).get('lang'));
+    if (!lang) {
+      var navs = navigator.languages || [navigator.language];
+      for (var j = 0; j < navs.length && !lang; j++) lang = pick(navs[j]);
+    }
+    lang = lang || 'en';
+    var sel = document.querySelector('.lang select');
+    function set(l) { document.documentElement.lang = l; sel.value = l; }
+    sel.addEventListener('change', function () { set(sel.value); });
+    set(lang);
+    // Opening /tangledefense/#rankings (etc.) expands that answer.
+    var target = location.hash && document.querySelector('details' + location.hash);
+    if (target) target.open = true;
+  })();
+</script>
+</body>
+</html>

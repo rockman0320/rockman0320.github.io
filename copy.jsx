@@ -34,7 +34,7 @@ const COPY = {
     },
     products: {
       section: 'products',
-      intro: '현재 세 개의 앱을 만들고 있으며, 앞으로 조금씩 늘려갈 계획입니다.',
+      intro: '현재 네 개의 앱을 만들고 있으며, 앞으로 조금씩 늘려갈 계획입니다.',
       items: [
         {
           idx: '01 / app',
@@ -67,6 +67,18 @@ const COPY = {
             '3D 블록을 화살표 방향으로 하나씩 빼내는 힐링 퍼즐 게임. ' +
             '12개 테마 월드, 960개 스테이지에서 블록으로 만든 동물과 물건을 해체합니다. ' +
             '누구나 바로 시작할 수 있지만 갈수록 머리를 쓰게 됩니다.',
+        },
+        {
+          idx: '04 / game',
+          title: 'Tangle Defense',
+          role: 'for idle game fans',
+          status: '출시 준비 중 · Google Play · App Store',
+          href: 'tangledefense/?lang=ko',
+          link: '지원 페이지 —>',
+          copy:
+            '영웅이 성벽 위에서 알아서 싸우는 귀여운 복셀 방치형 성 디펜스. ' +
+            '보스 카드와 장비로 판마다 다른 빌드를 만들고, 엉킴 마왕에게 빼앗긴 세계를 되찾습니다. ' +
+            'Piece Out과 같은 블록 왕국 이야기입니다.',
         },
       ],
     },
@@ -149,7 +161,7 @@ const COPY = {
     },
     products: {
       section: 'products',
-      intro: 'Three apps so far, with more to come over time.',
+      intro: 'Four apps so far, with more to come over time.',
       items: [
         {
           idx: '01 / app',
@@ -182,6 +194,18 @@ const COPY = {
             'A relaxing 3D puzzle game: slide blocks out the way their arrows point, one by one. ' +
             'Take apart animals and objects built from blocks across 12 themed worlds and 960 stages. ' +
             'Easy to pick up, and it keeps you thinking.',
+        },
+        {
+          idx: '04 / game',
+          title: 'Tangle Defense',
+          role: 'for idle game fans',
+          status: 'Coming soon · Google Play · App Store',
+          href: 'tangledefense/?lang=en',
+          link: 'support —>',
+          copy:
+            'A cozy voxel idle castle defense where your hero fights on their own from the wall. ' +
+            'Build a new combo every run with boss cards and gear, and win back the worlds taken by the Tangle Lord. ' +
+            'Set in the same Block Kingdom as Piece Out.',
         },
       ],
     },

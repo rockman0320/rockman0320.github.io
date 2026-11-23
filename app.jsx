@@ -84,6 +84,11 @@ function Products({ t }) {
                 <h3 className="title">{p.title}</h3>
                 <div className="role">{p.role}</div>
                 <div className="status">{p.status}</div>
+                {p.href && (
+                  <div style={{ marginTop: 14 }}>
+                    <a className="cta" href={p.href}>{p.link}</a>
+                  </div>
+                )}
               </div>
               <p className="copy">{p.copy}</p>
             </article>

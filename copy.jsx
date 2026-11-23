@@ -34,7 +34,7 @@ const COPY = {
     },
     products: {
       section: 'products',
-      intro: '현재 두 개의 앱을 개발 중이며, 앞으로 조금씩 늘려갈 계획입니다.',
+      intro: '현재 세 개의 앱을 만들고 있으며, 앞으로 조금씩 늘려갈 계획입니다.',
       items: [
         {
           idx: '01 / app',
@@ -55,6 +55,18 @@ const COPY = {
             '가족이나 지인의 스마트폰 화면을 원격으로 보며 통화할 수 있는 앱. ' +
             '“엄마, 거기 버튼 눌러봐”라고 말할 필요가 없어집니다. ' +
             '기술에 익숙하지 않은 가족을 곁에서 도와주고 싶은 모든 사람을 위한 도구.',
+        },
+        {
+          idx: '03 / game',
+          title: 'Piece Out',
+          role: 'for puzzle lovers',
+          status: 'Google Play 출시 · App Store 출시 예정',
+          href: 'pieceout/?lang=ko',
+          link: '지원 페이지 —>',
+          copy:
+            '3D 블록을 화살표 방향으로 하나씩 빼내는 힐링 퍼즐 게임. ' +
+            '12개 테마 월드, 960개 스테이지에서 블록으로 만든 동물과 물건을 해체합니다. ' +
+            '누구나 바로 시작할 수 있지만 갈수록 머리를 쓰게 됩니다.',
         },
       ],
     },
@@ -137,7 +149,7 @@ const COPY = {
     },
     products: {
       section: 'products',
-      intro: 'Two apps are currently in development, with more to come over time.',
+      intro: 'Three apps so far, with more to come over time.',
       items: [
         {
           idx: '01 / app',
@@ -158,6 +170,18 @@ const COPY = {
             'View a family member or friend’s phone screen remotely while on a call. ' +
             'No more “Mom, tap that button there.” ' +
             'A tool for anyone helping people who aren’t comfortable with technology.',
+        },
+        {
+          idx: '03 / game',
+          title: 'Piece Out',
+          role: 'for puzzle lovers',
+          status: 'On Google Play · App Store coming soon',
+          href: 'pieceout/?lang=en',
+          link: 'support —>',
+          copy:
+            'A relaxing 3D puzzle game: slide blocks out the way their arrows point, one by one. ' +
+            'Take apart animals and objects built from blocks across 12 themed worlds and 960 stages. ' +
+            'Easy to pick up, and it keeps you thinking.',
         },
       ],
     },
